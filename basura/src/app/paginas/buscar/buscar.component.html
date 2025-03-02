@@ -1,0 +1,7 @@
+<div style="margin-top: 100px; margin-bottom: 50px;" class="container">
+
+</div>
+
+<div *ngFor="let s of secciones">
+    <app-seccion *ngIf="s[2]" [busqueda]="busqueda" [titulo]="s[0]" [ruta]="s[1]"></app-seccion>
+</div>

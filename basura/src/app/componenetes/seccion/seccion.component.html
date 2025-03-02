@@ -1,0 +1,14 @@
+
+<div class="card m-3" data-bs-theme="dark">
+    <div class="card-body row row-cols-2 row-cols-md-3 g8">
+        
+        <h3 class="p-3">{{titulo | titlecase }}</h3>
+        <div class=" m-3" *ngIf="cargando">
+            <app-spinning></app-spinning>
+           </div>
+        <div *ngFor="let e of elementos" class="col p-2">
+            <app-card [elemento]="[e]" [seccion]="titulo"></app-card>
+        </div>
+        
+    </div>
+  </div>

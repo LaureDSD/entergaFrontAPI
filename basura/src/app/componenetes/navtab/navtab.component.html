@@ -1,0 +1,8 @@
+<ul class="nav bg-dark nav-tabs pt-2 text-decoration-none text-reset" data-bs-theme="dark">
+    <li  class="nav-item"  (click)="onButtonClick('todo')" >
+      <a  class="nav-link " [routerLinkActive]="'active'" aria-current="page" href="#">Todo</a>
+    </li>
+    <li (click)="onButtonClick(f[0])" *ngFor="let f of filtros" class="nav-item">
+      <a  class="nav-link" href="#">{{f[0] | titlecase}}</a>
+    </li>
+  </ul> 

@@ -1,0 +1,13 @@
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let c of carr; let i = index">
+      <div *ngIf="i == 0" class="carousel-item active" data-bs-interval="2000">
+        <img  [src]='[c]' style="height: 300px;" class="d-block w-100" alt="...">
+      </div>
+      <div *ngIf="i > 0" class="carousel-item " data-bs-interval="10000">
+        <img [src]='[c]' style="height: 300px;" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev"></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next"></button>
+  </div>

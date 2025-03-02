@@ -1,0 +1,12 @@
+<div class="bg-dark border-bottom border-body" data-bs-theme="dark" style="margin-top: 500px;"> 
+  <footer class="py-1 my-1">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li *ngFor="let e of enlaces" class="nav-item">
+        <a href="#" [routerLink]="[e[1]]" class="nav-link px-2 text-body-secondary">
+          {{e[0] | titlecase}}
+        </a>
+      </li>
+    </ul>
+    <p class="text-center text-body-secondary">© {{fecha}} {{comania | titlecase}}</p>
+  </footer>
+</div>

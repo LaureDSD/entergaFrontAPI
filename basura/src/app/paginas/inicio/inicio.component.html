@@ -1,0 +1,5 @@
+<app-carrousel></app-carrousel>
+<app-navtab [filtros]="secciones" (buttonClicked)="pulsarBoton($event)"></app-navtab>
+<div *ngFor="let s of secciones">
+    <app-seccion *ngIf="s[2]" [titulo]="s[0]" [ruta]="s[1]"></app-seccion>
+</div>

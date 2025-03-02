@@ -1,0 +1,28 @@
+<body class="bg-dark text-light">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 bg-dark p-5 rounded shadow-sm">
+      <h2 class="text-center mb-4">Iniciar Sesión</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="correo">Correo Electrónico</label>
+          <input type="email" class="form-control bg-dark text-light border-light" id="correo" name="correo" [(ngModel)]="correo" required>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="contraseña">Contraseña</label>
+          <input type="password" class="form-control bg-dark text-light border-light" id="contraseña" name="contraseña" [(ngModel)]="contrasena" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block w-100">Iniciar sesión</button>
+      </form>
+
+      <div class="text-center mt-3">
+        <a [routerLink]="['/registro']" class="btn btn-link text-light">¿No tienes cuenta? ¡Regístrate!</a>
+      </div>
+
+      <div *ngIf="errorMessage" class="mt-3 text-danger text-center">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</body>

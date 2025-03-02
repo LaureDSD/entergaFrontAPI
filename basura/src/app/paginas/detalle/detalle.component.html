@@ -1,0 +1,182 @@
+<div *ngIf="elemento" style="padding-top: 100px;" class="container mt-4 text-white">
+  
+  
+  <div class="row">
+    <!-- Imagen -->
+    <div class="col-md-4">
+      <img [src]="'/favicon.ico'" alt="{{ elemento.nombre }}" class="img-fluid rounded" *ngIf="elemento.imagen">
+    </div>
+
+    <!-- Descripcion-->
+    <div class="col-md-8">
+      <h1 class="">{{ elemento.nombre | titlecase }}</h1>
+      <h5 class="mt-4" *ngIf="elemento.descripcion">Descripción:</h5>
+      <p *ngIf="elemento.descripcion">{{ elemento.descripcion }}</p>
+    </div>
+  </div>
+
+
+  <h4 class="mt-4">Datos adicionales:</h4>
+  <table class="table table-bordered ">
+    <thead>
+      <tr>
+        <th>Campo</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- ID COMUN-->
+      <tr *ngIf="elemento.id">
+        <td>Id</td>
+        <td>{{ elemento.id }}</td>
+      </tr>
+
+      <!--NOMBRE COMUN -->
+      <tr *ngIf="elemento.nombre">
+        <td>Nombre</td>
+        <td>{{ elemento.nombre }}</td>
+      </tr>
+
+      <!-- TIPO-->
+       <!-- monstruo -->
+      <tr *ngIf="elemento.tipo_monstruo">
+        <td>Tipo</td>
+        <td>{{ elemento.tipo }}</td>
+      </tr>
+       <!-- nPC -->
+       <tr *ngIf="elemento.tipoNPC ">
+        <td>Tipo de Npc</td>
+        <td>{{ elemento.tipoNPC.nombre || 'No disponible' }}</td>
+      </tr>
+        <!-- mapa -->
+      <tr *ngIf="elemento.tipoMapa">
+        <td>Tipo de Mapa</td>
+        <td>{{ elemento.tipoMapa.nombre || 'No disponible' }}</td>
+      </tr>
+
+
+      <!-- NIVEL -->
+       <!-- monstruo -->
+      <tr *ngIf="elemento.nivel">
+        <td>Nivel</td>
+        <td>{{ elemento.nivel }}</td>
+      </tr>
+       <!-- mapa -->
+       <tr *ngIf="elemento.nivel_recomendado">
+        <td>Nivel recomendado</td>
+        <td>{{ elemento.nivel_recomendado }}</td>
+      </tr>
+
+
+      <!-- Unicos -->
+          <!-- monstruo -->
+        <tr *ngIf="elemento.almas !== undefined">
+          <td>Almas</td>
+          <td>{{ elemento.almas }}</td>
+        </tr>
+        <tr *ngIf="elemento.experiencia !== undefined">
+          <td>Experiencia</td>
+          <td>{{ elemento.experiencia }}</td>
+        </tr>
+
+        <!-- Habilidades -->
+        <tr *ngIf="elemento.tipoHabilidad ">
+          <td>TipoHabilidad</td>
+          <td>{{ elemento.tipoHabilidad }}</td>
+        </tr>
+        <tr *ngIf="elemento.objetivoHabilidad">
+          <td>ObjetivoHabilidad</td>
+          <td>{{ elemento.objetivoHabilidad }}</td>
+        </tr>
+        <tr *ngIf="elemento.unidades_afectadas ">
+          <td>Unidades afectadas</td>
+          <td>{{ elemento.unidades_afectadas }}</td>
+        </tr>
+        <tr *ngIf="elemento.area_efecto">
+          <td>Area de efecto</td>
+          <td>{{ elemento.area_efecto }}</td>
+        </tr>
+        <tr *ngIf="elemento.requisito_nivel ">
+          <td>Requisito nivel</td>
+          <td>{{ elemento.requisito_nivel }}</td>
+        </tr>
+        <tr *ngIf="elemento.nivel_maximo">
+          <td>Nivel maximo</td>
+          <td>{{ elemento.nivel_maximo }}</td>
+        </tr>
+
+        <!-- Efectos -->
+        <tr *ngIf="elemento.tipo ">
+          <td>Tipo</td>
+          <td>{{ elemento.tipo }}</td>
+        </tr>
+        <tr *ngIf="elemento.tipo_afectado">
+          <td>ObjetivoHabilidad</td>
+          <td>{{ elemento.tipo_afectado }}</td>
+        </tr>
+        <tr *ngIf="elemento.duracion_efecto ">
+          <td>Diracion</td>
+          <td>{{ elemento.duracion_efecto }}</td>
+        </tr>
+        <tr *ngIf="elemento.intervalos_efecto">
+          <td>Intervalos  de efecto</td>
+          <td>{{ elemento.intervalos_efecto }}</td>
+        </tr>
+        <tr *ngIf="elemento.acumulaciones ">
+          <td>Acumulaciones</td>
+          <td>{{ elemento.acumulaciones }}</td>
+        </tr>
+
+      <!-- Tablas -->
+      <tr *ngIf="elemento.estadisticas">
+        <td>Estadísticas</td>
+        <td>
+          <ul>
+            <li *ngIf="elemento.estadisticas.vida"><strong>Vida:</strong> {{ elemento.estadisticas.vida }}</li>
+            <li *ngIf="elemento.estadisticas.regeneracionVida"><strong>Regeneración Vida:</strong> {{ elemento.estadisticas.regeneracionVida }}</li>
+            <li *ngIf="elemento.estadisticas.escudo"><strong>Escudo:</strong> {{ elemento.estadisticas.escudo }}</li>
+            <li *ngIf="elemento.estadisticas.energia"><strong>Energía:</strong> {{ elemento.estadisticas.energia }}</li>
+            <li *ngIf="elemento.estadisticas.regeneracionEnergia"><strong>Regeneración Energía:</strong> {{ elemento.estadisticas.regeneracionEnergia }}</li>
+            <li *ngIf="elemento.estadisticas.mana"><strong>Maná:</strong> {{ elemento.estadisticas.mana }}</li>
+            <li *ngIf="elemento.estadisticas.regeneracionMana"><strong>Regeneración Maná:</strong> {{ elemento.estadisticas.regeneracionMana }}</li>
+            <li *ngIf="elemento.estadisticas.ataqueFisico"><strong>Ataque Físico:</strong> {{ elemento.estadisticas.ataqueFisico }}</li>
+            <li *ngIf="elemento.estadisticas.ataqueMagico"><strong>Ataque Mágico:</strong> {{ elemento.estadisticas.ataqueMagico }}</li>
+            <li *ngIf="elemento.estadisticas.defensaFisica"><strong>Defensa Física:</strong> {{ elemento.estadisticas.defensaFisica }}</li>
+            <li *ngIf="elemento.estadisticas.defensaMagica"><strong>Defensa Mágica:</strong> {{ elemento.estadisticas.defensaMagica }}</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- Listas items -->
+      <tr *ngIf="listaItems && listaItems.length > 0">
+        <td *ngIf="elemento.drops">Drops</td>
+        <td *ngIf="elemento.recompensas">Recompensas</td>
+        <td>
+          <ul>
+            <li *ngFor="let i of listaItems">
+              <strong>{{ i.item.nombre }}</strong>
+              <p>{{ i.item.descripcion }}</p>
+              <!--Monstruo-->
+              <p *ngIf="i.probabilidad"><strong>Probabilidad %:</strong> {{ i.probabilidad }}%</p>
+              <!--Mision-->
+              <p *ngIf="i.cantidad"><strong>Cantidad:</strong> {{ i.cantidad }}</p>
+            </li>
+          </ul>
+        </td>
+      </tr>
+
+
+
+
+    </tbody>
+  </table>
+
+
+  <!-- JSON mapear -->
+  <h4 class="mt-4">Datos adicionales JSON:</h4>
+  <div> {{elemento | json }} </div>
+
+
+
+</div>
