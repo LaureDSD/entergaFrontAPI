@@ -9,6 +9,8 @@ import { AuthGuard } from './servicio/auth-guard.service';
 import { ReglasComponent } from './paginas/reglas/reglas.component';
 import { DetalleComponent } from './paginas/detalle/detalle.component';
 import { BuscarComponent } from './paginas/buscar/buscar.component';
+import { PersonajesComponent } from './paginas/personajes/personajes.component';
+import { JuegoComponent } from './paginas/juego/juego.component';
 
 const routes: Routes = [
   
@@ -18,7 +20,13 @@ const routes: Routes = [
   { path: 'reglas', component: ReglasComponent, canActivate: [AuthGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: 'detalle/:ruta', component: DetalleComponent , canActivate: [AuthGuard]},
-  { path: 'detalle/:seccion/:id', component: DetalleComponent, canActivate: [AuthGuard] },
+  { path: 'detalle/:ruta', component: DetalleComponent , canActivate: [AuthGuard]},
+  //juego
+  //{ path: 'juego/:usuarioid', component: JuegoInicioComponent, canActivate: [AuthGuard] },
+  { path: 'juego/:usuarioid/personajes/', component: PersonajesComponent, canActivate: [AuthGuard] },
+  //{ path: 'juego/:usuarioid/creacionpPersonajes/', component: CreacionPersonajesComponent, canActivate: [AuthGuard] },
+  { path: 'juegoPartida/:usuarioid/personaje/:idpersonaje', component: JuegoComponent, canActivate: [AuthGuard] },
+  //juego
   { path: 'buscar/', component: BuscarComponent , canActivate: [AuthGuard]},
   { path: 'buscar/:texto', component: BuscarComponent , canActivate: [AuthGuard]},
   { path: 'error', component: ErrorComponent },

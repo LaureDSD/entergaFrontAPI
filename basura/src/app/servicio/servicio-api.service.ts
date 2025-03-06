@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ServicioAPIService {
   
   private apiUrl = 'http://localhost:8080/auth';
+  private usuario = "";
   
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -29,6 +30,10 @@ export class ServicioAPIService {
 
   saveToken(token: string): void {
     localStorage.setItem('token', token);
+  }
+
+  saveUser(user : string){
+    this.usuario = user
   }
 
   getToken(): string | null {

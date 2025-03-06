@@ -14,11 +14,12 @@ export class LoginComponent {
   contrasena: string = '';
   errorMessage: string = '';
 
-  constructor(private ServicioAPIService:ServicioAPIService , private router: Router) {}
+  constructor(private servicioAPIService:ServicioAPIService , private router: Router) {}
 
   onSubmit(): void {
     if (this.correo && this.contrasena) {
-      this.ServicioAPIService.login({ correo: this.correo, contraseña: this.contrasena }).subscribe({
+      this.servicioAPIService.saveUser(this.correo);
+      this.servicioAPIService.login({ correo: this.correo, contraseña: this.contrasena }).subscribe({
         next: (response) => {
           localStorage.setItem('token', response.token);
           this.router.navigate(['/inicio']);
